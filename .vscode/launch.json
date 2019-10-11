@@ -7,13 +7,14 @@
 
 
 
+
     {
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
       "url": "http://localhost:5500",
       "webRoot": "${workspaceFolder}",
-      "file": "${workspaceFolder}/04 - Array Cardio Day 1/index-START.html",
+      "file": "${workspaceFolder}/05 - Flex Panel Gallery/index-START.html",
       "runtimeExecutable": "/usr/bin/chromium",
       "runtimeArgs": [
         "--new-window",
