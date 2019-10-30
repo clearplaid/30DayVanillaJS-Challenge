@@ -12,8 +12,10 @@
 
 const canvas = document.querySelector('#draw');
 const ctx = canvas.getContext('2d');
+// grab canvas and make it the same size as the window
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
 ctx.strokeStyle = '#BADA55';
 //check out mdn to find out more options for lineJoin and lineCap and play around with it
 ctx.lineJoin = 'round';
