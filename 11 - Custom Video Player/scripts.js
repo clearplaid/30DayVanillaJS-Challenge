@@ -50,6 +50,9 @@ function scrub(e) {
 
 function handleFullScreen() {
   console.log('fullscreen');
+  // onclick of fullscreen button player fills screen
+  // if clicked again screen goes back to original size
+  video.requestFullscreen();
 }
 
 /* Hook up Event Listeners */
