@@ -43,6 +43,12 @@
   </div>
 
   <script>
+    // limit the rate at which a function can fire
+    // Debounce functions are included in many JavaScript libraries
+    // The goal behind each implementation is to reduce overhead 
+    // by preventing a function from being called several times in succession
+    // Regardless of the library, 
+    // all debounce functions are built on JavaScript's native setTimeout function
     function debounce(func, wait = 20, immediate = true) {
       var timeout;
       return function() {
@@ -57,6 +63,27 @@
         if (callNow) func.apply(context, args);
       };
     }
+
+    const sliderImages = document.querySelectorAll('.slide-in');
+
+    function checkSlide(e) {
+      console.log(window.scrollY);
+      sliderImages.forEach(sliderImage => {
+        // halfway through the image
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+        // bottom of the image
+        const imageBottom = sliderImage.offsetTop + sliderImage.height;
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+        if (isHalfShown && isNotScrolledPast) {
+          sliderImage.classList.add('active');
+        } else {
+          sliderImage.classList.remove('active');
+        }
+      })
+    }
+
+    window.addEventListener('scroll', debounce(checkSlide));
 
   </script>
 
